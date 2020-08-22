@@ -29,13 +29,16 @@ class Employee:
     def addnote():
         notes = input("Enter Notes : ")
         file = open("notes.txt", "a")
-        file.write(notes)
+        file.writelines("\n")
+        file.writelines(notes)
         file.close()
 
-while(True):
+Running=True
+while(Running):
     print("1. Add Emp")
     print("2. Display Emp")
     print("3. Add Notes")
+    print("4.Quit")
     choice = int(input("Enter your Choice:"))
     if choice == 1:
         c = Employee()
@@ -49,5 +52,8 @@ while(True):
         obj.display()
     elif choice == 3:
         Employee.addnote()
+    elif choice == 4:
+        print("goodbye")
+        Running=False
     else:
         print("invalid choice")
